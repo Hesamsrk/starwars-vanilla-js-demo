@@ -66,6 +66,40 @@
     height: 90px;
     bottom: -90px;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
+
+@media screen and (max-width: 480px) {
+
+    .starship-navbar {
+        height: 300px;
+        bottom: -300px;
+        flex-direction: column;
+    }
+
+    .starship-navbar .default-button {
+        margin: 5px 0;
+    }
+
+    #container {
+        margin-bottom: 300px;
+    }
+
+    #starship-container {
+        flex-direction: column;
+    }
+
+    .starship-details {
+        width: 100%;
+    }
+
+    .starship-list {
+        width: 100%;
+    }
+
+
+}
+
+

@@ -91,6 +91,9 @@ body, p {
     bottom: 5px;
     font-size: 12px;
     pointer-events: none;
+    z-index: 15;
+    padding: 5px;
+    backdrop-filter: blur(10px);
 }
 
 #credits a {

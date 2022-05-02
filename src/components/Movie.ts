@@ -21,6 +21,7 @@ export const Movie = ({starships, ...data}: MovieOT, onClick: () => Promise<void
     }
     container.appendChild(Item("Title", data.title))
     container.appendChild(Item("Episode", String(data.episode_id)))
+    container.appendChild(Item("Release date", data.release_date))
 
     const button = document.createElement("button")
     button.innerText = "Show starships"

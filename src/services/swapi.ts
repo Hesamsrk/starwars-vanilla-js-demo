@@ -4,12 +4,14 @@ import {Fetch} from "../utils";
 export interface MovieOT {
     title: string
     episode_id: number
+    release_date: string
     starships: number[]
 }
 
 export interface MovieResponse {
     title: string
     episode_id: number
+    release_date: string
     starships: string[]
 }
 
@@ -19,7 +21,8 @@ export const getMovieByID = async (id: number) => Fetch<MovieResponse>(`${Config
     .then(({
                starships,
                episode_id,
-               title
+               title,
+               release_date
            }) => ({
         starships: starships.map(item => {
             const result = STARSHIP_REGEX.exec(item)
@@ -30,7 +33,8 @@ export const getMovieByID = async (id: number) => Fetch<MovieResponse>(`${Config
             }
         }).filter(item => item !== undefined) as number[],
         episode_id,
-        title
+        title,
+        release_date
     }))
 
 

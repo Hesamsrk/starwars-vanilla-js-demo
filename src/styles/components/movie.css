@@ -30,6 +30,19 @@
     width: 100%;
 }
 
+@media screen and (max-width: 620px) {
+    .movie .item {
+        flex-wrap: wrap;
+        margin: 10px 0;
+    }
+
+    .movie{
+        flex-wrap: wrap;
+    }
+
+
+}
+
 .movie .key {
     font-weight: bold;
     font-size: 20px;
