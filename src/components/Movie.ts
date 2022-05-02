@@ -1,7 +1,7 @@
 import {MovieOT} from "../services/swapi";
 
 
-export const Movie = ({starships, ...data}: MovieOT) => {
+export const Movie = ({starships, ...data}: MovieOT, onClick: () => Promise<void>) => {
     const container = document.createElement("div")
     container.classList.add("movie")
 
@@ -24,6 +24,8 @@ export const Movie = ({starships, ...data}: MovieOT) => {
 
     const button = document.createElement("button")
     button.innerText = "Show starships"
+    button.classList.add("default-button")
+    button.onclick = onClick
     container.appendChild(button)
     return container
 }

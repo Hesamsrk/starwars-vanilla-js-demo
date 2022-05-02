@@ -13,9 +13,16 @@ export const setLoader = (status: boolean) => {
         return
     }
     if (status) {
-        mainLoader.style.display = "flex"
+        if (mainLoader.style.display !== "flex")
+            mainLoader.style.display = "flex"
     } else {
-        setTimeout(() => (mainLoader.style.display = "none"), 1000)
+        if (mainLoader.style.display !== "none")
+            mainLoader.style.display = "none"
     }
-
 }
+
+export const reshape = <T extends any>(arr: T[], col: number) => {
+    const newArr = [];
+    while (arr.length) newArr.push(arr.splice(0, col));
+    return newArr;
+};

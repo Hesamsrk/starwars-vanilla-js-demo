@@ -37,6 +37,10 @@ body, p {
     background-position: center;
     /* To display background image correctly under glass effect of #container*/
     background-attachment: fixed;
+    /*Set default font color*/
+    color: white;
+
+    overflow: hidden;
 }
 
 #container {
@@ -49,10 +53,11 @@ body, p {
     border-radius: 5px;
     /*Positioning and  overflow*/
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     /*To display glass effect correctly*/
     z-index: 1;
     background: inherit;
+    color: white;
 }
 
 #container:before {
@@ -71,7 +76,6 @@ body, p {
 }
 
 #title {
-    color: white;
     font-weight: bold;
     font-size: 32px;
     line-height: 100px;
@@ -80,10 +84,48 @@ body, p {
     text-align: start;
 }
 
-#movie-page {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
+
+#credits {
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+#credits a {
+    color: gold;
+    font-weight: bold;
+    pointer-events: all;
+}
+
+
+.default-button {
+    box-shadow: inset 0 34px 0 -15px #b54b3a;
+    background-color: #a73f2d;
+    border: 1px solid #241d13;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 9px 23px;
+    text-decoration: none;
+    border-radius: 10px;
+    text-shadow: 0 -1px 0 #7a2a1d;
+    margin: 0 10px;
+}
+
+.default-button:hover {
+    background-color: #b34332;
+}
+
+.default-button:active {
+    position: relative;
+    top: 1px;
+}
+
+.default-button:disabled {
+    opacity: 0.2;
+    pointer-events: none;
 }
