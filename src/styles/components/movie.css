@@ -1,3 +1,7 @@
+/*
+The item related to this ID is the main container of the movies page. (The page which represents the list of starwars episodes.)
+Also this ID is used in loadPage function which simulates routing.
+*/
 #movie-container {
     width: 100%;
     display: flex;
@@ -6,6 +10,9 @@
     align-items: start;
 }
 
+/*
+The container of each movie box
+*/
 .movie {
     color: white;
     border: 1px solid white;
@@ -21,7 +28,9 @@
     box-sizing: border-box;
 }
 
-
+/*
+The container of each Key:value in Movie box..
+*/
 .movie .item {
     display: flex;
     flex-direction: row;
@@ -30,19 +39,25 @@
     width: 100%;
 }
 
+/*
+ To make page responsive for mobile devices
+*/
 @media screen and (max-width: 620px) {
     .movie .item {
         flex-wrap: wrap;
         margin: 10px 0;
     }
 
-    .movie{
+    .movie {
         flex-wrap: wrap;
     }
 
 
 }
 
+/*
+ The key of each .item
+*/
 .movie .key {
     font-weight: bold;
     font-size: 20px;
@@ -50,6 +65,10 @@
     margin-right: 10px;
 }
 
+
+/*
+ The value of each .item
+*/
 .movie .value {
     color: indianred;
     font-size: 16px;

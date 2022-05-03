@@ -1,16 +1,27 @@
+/*
+ To make HTML and body fit the screen
+*/
 html, body {
     height: 100%;
 }
 
+
+/*
+ To make HTML and body fit the screen
+*/
 #app {
     min-height: 100%;
 }
 
-/* for IE 6, if you care */
+/* fallback for IE 6 */
 * html #app {
     height: 100%;
 }
 
+
+/*
+ To make HTML and body fit the screen
+*/
 body, p {
     margin: 0;
     padding: 0
@@ -39,7 +50,9 @@ body, p {
     background-attachment: fixed;
     /*Set default font color*/
     color: white;
-
+    /*
+    To prevent overflow and scrollbar appearance
+    */
     overflow: hidden;
 }
 
@@ -57,11 +70,14 @@ body, p {
     /*To display glass effect correctly*/
     z-index: 1;
     background: inherit;
+    /*
+    default font color for all inner layers
+    */
     color: white;
 }
 
 #container:before {
-    /* To apply glass effect on #container displayable in most old and new browsers*/
+    /* To apply glass effect on #container displayable in pretty much all older and new browsers - better than using backdrop-filter*/
     content: "";
     position: absolute;
     background: inherit;
@@ -75,6 +91,10 @@ body, p {
     margin: -20px;
 }
 
+
+/*
+Styling the main interchangeable title
+*/
 #title {
     font-weight: bold;
     font-size: 32px;
@@ -84,7 +104,9 @@ body, p {
     text-align: start;
 }
 
-
+/*
+Credits to the developer :)
+*/
 #credits {
     position: fixed;
     right: 5px;
@@ -93,6 +115,11 @@ body, p {
     pointer-events: none;
     z-index: 15;
     padding: 5px;
+
+    /*
+    I used backdrop-filter in this blur background, instead of the last method which supported older browsers,
+    and that's because the glass effect is not much of an important matter in this item.
+    */
     backdrop-filter: blur(10px);
 }
 
@@ -102,7 +129,9 @@ body, p {
     pointer-events: all;
 }
 
-
+/*
+The default button styling
+*/
 .default-button {
     box-shadow: inset 0 34px 0 -15px #b54b3a;
     background-color: #a73f2d;
@@ -119,15 +148,24 @@ body, p {
     margin: 0 10px;
 }
 
+/*
+The default button hover styling
+*/
 .default-button:hover {
     background-color: #b34332;
 }
 
+/*
+The default button active styling
+*/
 .default-button:active {
     position: relative;
     top: 1px;
 }
 
+/*
+The default button disabled styling
+*/
 .default-button:disabled {
     opacity: 0.2;
     pointer-events: none;

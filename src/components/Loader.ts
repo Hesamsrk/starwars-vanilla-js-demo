@@ -2,7 +2,7 @@ interface PropTypes {
     id?: string
     zIndex?: number
 }
-
+// The loader component:
 export const Loader = ({id, zIndex}: PropTypes) => {
     const container = document.createElement('div')
     container.style.display = "none"

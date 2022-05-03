@@ -1,7 +1,9 @@
 {
-  "name": "webmidterm",
-  "private": true,
-  "version": "0.0.0",
+  "name": "starwars",
+  "private": false,
+  "version": "0.0.1",
+  "author": "https://www.linkedin.com/in/hesamsrk/",
+  "repository": "https://github.com/hesamsrk/starwars-vanilla-js-demo",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -13,5 +15,6 @@
     "gh-pages": "^3.2.3",
     "typescript": "^4.5.4",
     "vite": "^2.9.5"
-  }
+  },
+  "license": "UNLICENSED"
 }

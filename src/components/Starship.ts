@@ -1,5 +1,6 @@
 import {StarshipOT} from "../services/swapi";
 
+// The Starship component which we listed them in Starships page:
 export const Starship = (data: StarshipOT) => {
     const container = document.createElement("li")
     container.onclick = () => {

@@ -1,6 +1,10 @@
 import {Config} from "../config";
 import {Fetch} from "../utils";
 
+/*
+* MovieResponse wrapped into some other format  for ease of use (Starship links are parsed into ID numbers)
+*
+* */
 export interface MovieOT {
     title: string
     episode_id: number
@@ -8,6 +12,10 @@ export interface MovieOT {
     starships: number[]
 }
 
+/*
+* The data structure of Movie response received from server
+*
+* */
 export interface MovieResponse {
     title: string
     episode_id: number
@@ -15,8 +23,10 @@ export interface MovieResponse {
     starships: string[]
 }
 
-
+// The regex which we used to replace starship links with starship IDs.
 const STARSHIP_REGEX = /https:\/\/swapi\.dev\/api\/starships\/([0-9]*)\//
+
+// Fetches the Movie data with the given ID and parses the data to MovieOT:
 export const getMovieByID = async (id: number) => Fetch<MovieResponse>(`${Config.Services.swapi.baseURL}/films/${id}`)
     .then(({
                starships,
@@ -37,7 +47,10 @@ export const getMovieByID = async (id: number) => Fetch<MovieResponse>(`${Config
         release_date
     }))
 
-
+/*
+* The data structure of Starship response received from server
+*
+* */
 export interface StarshipOT {
     name: string,
     model: string,
@@ -50,6 +63,7 @@ export interface StarshipOT {
     cargo_capacity: string
 }
 
+// Fetches the Starship data with the given ID:
 export const getStarshipByID = async (id: number) => Fetch<StarshipOT>(`${Config.Services.swapi.baseURL}/starships/${id}`)
     .then(({
                name,

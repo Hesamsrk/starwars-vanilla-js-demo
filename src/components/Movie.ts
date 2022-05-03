@@ -1,6 +1,6 @@
 import {MovieOT} from "../services/swapi";
 
-
+// The Movie box component which we listed them in Movies page:
 export const Movie = ({starships, ...data}: MovieOT, onClick: () => Promise<void>) => {
     const container = document.createElement("div")
     container.classList.add("movie")

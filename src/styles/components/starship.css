@@ -1,3 +1,7 @@
+/*
+The item related to this ID is the main container of the starship page. (The page which represents the list of starships in each movie.)
+Also this ID is used in loadPage function which simulates routing
+*/
 #starship-container {
     display: flex;
     flex-direction: row;
@@ -5,11 +9,18 @@
     align-items: start;
 }
 
+
+/*
+The class related to the ul element which contains the list of starship names
+*/
 .starship-list {
     width: calc(50% - 20px);
     margin-right: 20px;
 }
 
+/*
+The class related to the li element which contains the starship name
+*/
 .starship-item {
     font-size: 18px;
     font-style: italic;
@@ -18,14 +29,25 @@
     width: 100%;
 }
 
+
+/*
+Selected .starship-item
+*/
 .starship-item.active {
     color: gold;
 }
 
+/*
+Hovered .starship-item
+*/
 .starship-item:hover {
     background-color: indianred;
 }
 
+
+/*
+The container which contains the list of starship data items
+*/
 .starship-details {
     width: 50%;
     padding: 10px;
@@ -36,7 +58,9 @@
     align-items: start;
 }
 
-
+/*
+The container which contains the starship data item
+*/
 .starship-details .item {
     display: flex;
     flex-direction: row;
@@ -46,6 +70,9 @@
     padding: 10px;
 }
 
+/*
+The container which contains the key side of starship data item
+*/
 .starship-details .key {
     font-weight: bold;
     font-size: 20px;
@@ -53,6 +80,9 @@
     margin-right: 10px;
 }
 
+/*
+The container which contains the value side of starship data item
+*/
 .starship-details .value {
     color: indianred;
     font-size: 16px;
@@ -60,6 +90,9 @@
     text-transform: none;
 }
 
+/*
+The navbar which contains the pagination buttons and go back to movie list button
+*/
 .starship-navbar {
     position: absolute;
     width: 100%;
@@ -71,6 +104,11 @@
     align-items: center;
 }
 
+
+/*
+The item related to this ID is the main container of the movies page. (The page which represents the list of starwars episodes.)
+Also this ID is used in
+*/
 @media screen and (max-width: 620px) {
 
     .starship-navbar {
@@ -98,7 +136,6 @@
     .starship-list {
         width: 100%;
     }
-
 
 }
 
