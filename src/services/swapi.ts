@@ -27,7 +27,7 @@ export interface MovieResponse {
 const STARSHIP_REGEX = /https:\/\/swapi\.dev\/api\/starships\/([0-9]*)\//
 
 // Fetches the Movie data with the given ID and parses the data to MovieOT:
-export const getMovieByID = async (id: number) => Fetch<MovieResponse>(`${Config.Services.swapi.baseURL}/films/${id}`)
+export const getMovieByID = async (id: number): Promise<MovieOT> => Fetch<MovieResponse>(`${Config.Services.swapi.baseURL}/films/${id}`)
     .then(({
                starships,
                episode_id,
@@ -47,44 +47,59 @@ export const getMovieByID = async (id: number) => Fetch<MovieResponse>(`${Config
         release_date
     }))
 
+
 /*
-* The data structure of Starship response received from server
+* StarshipResponse wrapped into some other format  for ease of use (Movie links are parsed into ID numbers)
 *
 * */
 export interface StarshipOT {
     name: string,
     model: string,
     manufacturer: string,
-    cost_in_credits: string,
-    length: string,
-    max_atmosphering_speed: string,
     crew: string,
     passengers: string,
-    cargo_capacity: string
+    films: number[]
 }
 
+/*
+* The data structure of Starship response received from server
+*
+* */
+export interface StarshipResponse {
+    name: string,
+    model: string,
+    manufacturer: string,
+    crew: string,
+    passengers: string,
+    films: string[]
+}
+
+
+// The regex which we used to replace film links with film IDs.
+const MOVIE_REGEX = /https:\/\/swapi\.dev\/api\/films\/([0-9]*)\//
 // Fetches the Starship data with the given ID:
-export const getStarshipByID = async (id: number) => Fetch<StarshipOT>(`${Config.Services.swapi.baseURL}/starships/${id}`)
+export const getStarshipByID = async (id: number): Promise<StarshipOT> => Fetch<StarshipResponse>(`${Config.Services.swapi.baseURL}/starships/${id}`)
     .then(({
                name,
                model,
                manufacturer,
-               cost_in_credits,
-               length,
-               max_atmosphering_speed,
                crew,
                passengers,
-               cargo_capacity
+               films
            }
     ) => ({
             name,
             model,
             manufacturer,
-            cost_in_credits,
-            length,
-            max_atmosphering_speed,
             crew,
             passengers,
-            cargo_capacity
+            films: films.map(item => {
+                const result = MOVIE_REGEX.exec(item)
+                if (result) {
+                    return Number(result[1])
+                } else {
+                    return undefined
+                }
+            }).filter(item => item !== undefined) as number[],
         }
     ))
